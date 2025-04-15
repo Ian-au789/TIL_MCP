@@ -1,0 +1,4 @@
+# .gitignore
+mcp_commit_log.txt
+.env
+__pycache__/
