@@ -1,9 +1,7 @@
 from fastapi import FastAPI, Query
 from fastapi_mcp import FastApiMCP
 from dotenv import load_dotenv
-import os
-import httpx
-import uvicorn
+import os, httpx, uvicorn
 
 load_dotenv()
 app = FastAPI()
@@ -19,22 +17,22 @@ mcp = FastApiMCP(
 # Ollama 서버 주소 설정
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
 
-
+# 기본 라우트: 서버 상태 확인용
 @app.get("/")
 async def root():
     return {"message": "MCP Ask-Mistral Agent is live!"}
 
-
+# 핵심 기능: 질문을 Mistral에게 보내고 응답 받기
 @app.get("/ask", operation_id="ask_mistral", description="Ask a question to Mistral")
 async def ask_mistral_endpoint(question: str = Query(..., description="질문 내용")):
     payload = {
-        "model": "mistral:latest",
+        "model": "mistral",
         "prompt": question,
         "stream": False
     }
     try:
-        response = httpx.post(f"{OLLAMA_URL}/api/generate", json=payload)
-        return {"response": response.json().get("response", "").strip()}
+        res = httpx.post(f"{OLLAMA_URL}/api/generate", json=payload)
+        return {"response": res.json().get("response", "").strip()}
     except Exception as e:
         return {"error": str(e)}
 
