@@ -120,3 +120,13 @@ results = model.train(
     show     = True,
     patience = 5,
 )
+
+TRAIN_RUN_DIR = "/kaggle/working/filtered_2400_600"
+loss_plot_path = f"{TRAIN_RUN_DIR}/results.png"
+
+img = plt.imread(loss_plot_path)
+plt.figure(figsize=(10, 5))
+plt.imshow(img)
+plt.axis("off")
+plt.title("Training Loss Graph")
+plt.show()
