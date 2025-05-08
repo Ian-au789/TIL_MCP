@@ -27,7 +27,7 @@ async def ask_mistral(question: str):
     payload = {
         "model": "mistral:latest",
         "prompt": question,
-        "stream": False
+        "stream": False,
     }
     try:
         res = httpx.post(f"{OLLAMA_URL}/api/generate", json=payload)
