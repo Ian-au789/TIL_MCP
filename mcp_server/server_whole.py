@@ -77,21 +77,22 @@ async def generate_problem(prompt: str) -> Dict[str, Any]:
     
     # Create a system prompt that instructs the LLM how to format the response
     system_prompt = """You are a problem generator for educational purposes. 
-Create a question based on the user's prompt. 
-The type of the question is 'select' if you created a multiple choice quesetion,
-or 'write' if you created a essay question.
-Your response must be in valid JSON format with the following structure:
-{
-  "title": "Brief title of the problem",
-  "content": "The full problem statement or question",
-  "type": "Either select or write",
-  "answer": "The correct answer for the question",
-  "category": "Subject/Topic/Subtopic",
-}
+    Create a question based on the user's prompt. 
+    The type of the question is 'select' if you created a multiple choice quesetion,
+    or 'write' if you created a essay question.
+    Your response must be in valid JSON format with the following structure:
+    {
+    "title": "Brief title of the problem",
+    "content": "The full problem statement or question",
+    "type": "Either select or write",
+    "answer": "The correct answer for the question",
+    "category": "Subject/Topic/Subtopic",
+    }
 
-DO NOT include any explanations or text outside the JSON object.
-Ensure your response is valid JSON that can be parsed programmatically.
-"""
+    DO NOT include any explanations or text outside the JSON object.
+    Also DO NOT make id field for this data. The server will created it automatically.
+    Ensure your response is valid JSON that can be parsed programmatically.
+    """
 
     # Combine the system prompt with the user's prompt
     full_prompt = f"{system_prompt}\n\nUser Request: {prompt}"
