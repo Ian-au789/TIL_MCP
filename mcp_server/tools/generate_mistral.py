@@ -9,6 +9,7 @@ async def generate_problem(prompt: str) -> dict:
 
     try:
         response = await generate_with_ollama(full_prompt)
+        print(response)
         problem_data = await extract_json_from_text(response)
         # 필드 보정 로직 추가
         return problem_data
@@ -21,3 +22,4 @@ async def generate_problem(prompt: str) -> dict:
             "answer": "Retry",
             "category": "Error"
         }
+

@@ -1,7 +1,10 @@
 import httpx
 import os
+from dotenv import load_dotenv
 
-OLLAMA_API_URL = os.getenv("OLLAMA_API_URL", "http://localhost:11434/api/generate")
+load_dotenv()
+
+OLLAMA_API_URL = os.getenv("OLLAMA_API_URL")
 
 async def generate_with_ollama(prompt: str) -> str:
     data = {"model": "mistral", "prompt": prompt, "stream": False}
