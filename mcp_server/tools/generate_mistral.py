@@ -2,8 +2,12 @@ from mcp_instance import mcp
 from services.ollama_client import generate_with_ollama
 from services.utils import extract_json_from_text
 
-@mcp.tool()
-async def generate_problem(prompt: str) -> dict:
+@mcp.tool(
+        name="generate_problem_mistral",
+        description="Problem generator for simple option questions " \
+        "such as based on a given definition choose the right word."
+)
+async def generate_problem_mistral(prompt: str) -> dict:
     print(f"[DEBUG] Generating problem with prompt: {prompt}")
     
     # Create a system prompt that instructs the LLM how to format the response
@@ -15,7 +19,7 @@ async def generate_problem(prompt: str) -> dict:
     {
     "title": "Brief title of the problem",
     "content": "The full problem statement or question",
-    "type": "Either select or write",
+    "type": "select",
     "answer": "The correct answer for the question",
     "category": "Subject/Topic/Subtopic",
     }

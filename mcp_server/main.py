@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from mcp_instance import mcp
-from tools import generate_mistral 
+from tools import generate_mistral, generate_gpt
+from dispatch import dispatch
 from routes.call_handler import handle_call
 from middleware.request_logger import log_requests
 
