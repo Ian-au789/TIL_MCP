@@ -94,3 +94,5 @@ mcp_server/
 $ cd mcp_server
 $ python main.py
 $ uvicorn main:app --reload --port 11500
+
+# 면접 끝날 때까지 한동안 휴업
