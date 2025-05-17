@@ -96,3 +96,4 @@ $ python main.py
 $ uvicorn main:app --reload --port 11500
 
 # 면접 끝날 때까지 한동안 휴업
+# 오늘은 반도체 물리 현상 공부 올 클리어 
