@@ -89,6 +89,7 @@ async def generate_problem(prompt: str) -> Dict[str, Any]:
     "category": "Subject/Topic/Subtopic",
     }
 
+    If you choose select type, the content should include 4 answer options in 1, 2, 3, 4. The answer should be a single number.
     DO NOT include any explanations or text outside the JSON object.
     Also DO NOT make id field for this data. The server will created it automatically.
     Ensure your response is valid JSON that can be parsed programmatically.
