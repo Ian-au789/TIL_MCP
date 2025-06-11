@@ -20,4 +20,4 @@ async def generate(prompt: str) -> str:
 
 #"X-NCP-CLOVASTUDIO-REQUEST-ID": "cb74c8fb916a4ebbba73c47fe99e8c83"
 # 유효 주소 : https://clovastudio.stream.ntruss.com/testapp/v1/chat-completions/HCX-003
-# 다음 목표 : HCX-005, HCX-DASH
+# 다음 목표 : HCX-005, HCX-DASH-01
