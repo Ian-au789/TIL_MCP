@@ -8,7 +8,7 @@ mcp = FastMCP("multi-llm-problem-gen")
 # 내부에서 호출 가능한 함수
 async def generate_problem_internal(input: Dict[str, Any]) -> Dict[str, Any]:
     prompt = input.get("prompt", "")
-    llm = input.get("llm", "ollama")
+    llm = input.get("llm", "")
 
     system_prompt = '''
                     당신은 교육용 문제를 생성하는 인공지능입니다.  
@@ -17,7 +17,7 @@ async def generate_problem_internal(input: Dict[str, Any]) -> Dict[str, Any]:
                     - 객관식 문제일 경우: "select"  
                     - 서술형 문제일 경우: "write"
 
-                    당신의 응답은 반드시 아래 형식의 **유효한 JSON 객체**여야 하며, 그 외 설명이나 텍스트는 절대 포함하지 마세요:
+                    당신의 응답은 반드시 아래 형식의 유효한 JSON 객체여야 하며, 그 외 설명이나 텍스트는 절대 포함하지 마세요:
 
                     {
                     "title": "문제의 간단한 제목",
@@ -37,9 +37,9 @@ async def generate_problem_internal(input: Dict[str, Any]) -> Dict[str, Any]:
                     "answer" 필드는 위 보기 중 정답 번호 하나로 작성하세요 (예: "2").
 
                     주의사항:
-                    - **절대 JSON 외의 설명이나 텍스트를 포함하지 마세요.**
-                    - **id 필드는 만들지 마세요. 서버에서 자동 생성됩니다.**
-                    - **응답은 반드시 파싱 가능한 JSON이어야 합니다.**
+                    - 절대 JSON 외의 설명이나 텍스트를 포함하지 마세요.
+                    - id 필드는 만들지 마세요. 서버에서 자동 생성됩니다.
+                    - 응답은 반드시 파싱 가능한 JSON이어야 합니다.
                     '''
 
     full_prompt = f"{system_prompt}\n\n{prompt}"
@@ -114,7 +114,7 @@ async def generate_problem(input: Dict[str, Any]) -> Dict[str, Any]:
 "answer" 필드는 위 보기 중 정답 번호 하나로 작성하세요 (예: "2").
 
 주의사항:
-- **절대 JSON 외의 설명이나 텍스트를 포함하지 마세요.**
-- **id 필드는 만들지 마세요. 서버에서 자동 생성됩니다.**
-- **응답은 반드시 파싱 가능한 JSON이어야 합니다.**
+- 절대 JSON 외의 설명이나 텍스트를 포함하지 마세요.
+- id 필드는 만들지 마세요. 서버에서 자동 생성됩니다.
+- 응답은 반드시 파싱 가능한 JSON이어야 합니다.
 '''
