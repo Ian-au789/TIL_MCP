@@ -244,3 +244,5 @@ async def test_llm():
 if __name__ == "__main__":
     print(f"Starting MCP Server with {OLLAMA_MODEL} LLM integration on port 11500...")
     uvicorn.run(app, host="0.0.0.0", port=11500)
+
+    # MCP 서버는 FastAPI 서버와 분리
