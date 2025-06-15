@@ -50,3 +50,5 @@ async def generate(prompt: str) -> str:
 # 다음 목표 : HCX-005, HCX-DASH-02
 # https://clovastudio.stream.ntruss.com/testapp/v1/completions/HCX-005
 # https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+
+# 하이퍼클로바X api는 주소가 다 다름
