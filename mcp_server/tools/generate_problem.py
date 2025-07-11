@@ -1,7 +1,7 @@
 from fastmcp import FastMCP
 from typing import Dict, Any
 from utils.json_extractor import extract_json_from_text
-from llm import ollama, chatgpt, hyperclova
+from llm import ollama, chatgpt, hyperclova, solar
 
 mcp = FastMCP("multi-llm-problem-gen")
 
@@ -51,6 +51,8 @@ async def generate_problem_internal(input: Dict[str, Any]) -> Dict[str, Any]:
             raw = await chatgpt.generate(full_prompt)
         elif llm == "hyperclova":
             raw = await hyperclova.generate(full_prompt)
+        elif llm == "solar":
+            raw = await solar.generate(full_prompt)
         else:
             raise ValueError(f"Unsupported LLM: {llm}")
 

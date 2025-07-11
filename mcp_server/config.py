@@ -8,3 +8,4 @@ OLLAMA_MODEL = "mistral"
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 CLOVA_API_KEY = os.getenv("CLOVA_API_KEY")
+UPSTAGE_API_KEY = os.getenv("UPSTAGE_API_KEY")
