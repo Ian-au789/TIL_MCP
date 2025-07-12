@@ -8,7 +8,7 @@ async def generate(prompt: str) -> str:
     }
 
     payload = {
-        "model": "solar-1-pro-chat",  # 또는 "solar-1-pro-chat" (유료 사용 시)
+        "model": "solar-1-mini-chat", 
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.7,
     }
