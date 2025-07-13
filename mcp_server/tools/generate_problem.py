@@ -120,3 +120,5 @@ async def generate_problem(input: Dict[str, Any]) -> Dict[str, Any]:
 - id 필드는 만들지 마세요. 서버에서 자동 생성됩니다.
 - 응답은 반드시 파싱 가능한 JSON이어야 합니다.
 '''
+
+# fastmcp server prompt
